@@ -11,6 +11,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 100%;
 }
 
 /* Navbar Headder styling goes here */
@@ -18,21 +19,39 @@ body {
 	width: 100%;
 	display: flex;
 	background: #333;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 	color: white;
-	padding: 0 12rem;
 }
 
 .brand-title {
 	/* border: 1px solid lawngreen; */
-	font-size: 1.5rem;
+	font-size: 2rem;
 	color: inherit;
 	text-decoration: none;
 }
 
+.toggle-btn {
+	position: absolute;
+	top: .75rem;
+	right: 1rem;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 21px;
+}
+
+.toggle-btn .toggle {
+	height: 0.2rem;
+	width: 100%;
+	background-color: white;
+	border-radius: 0.5rem;
+}
+
 .nav-links {
 	height: 100%;
+
 	/* border: 1px solid lawngreen; */
 }
 
@@ -40,11 +59,11 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	list-style: none;
 	/* border: 1px solid whitesmoke; */
 }
 
 .nav-links li {
-	list-style: none;
 	padding: 1rem;
 }
 
@@ -60,13 +79,11 @@ body {
 
 main {
 	color: #660033;
-	/* border: 1px solid red; */
 	flex: 1 0 auto;
 }
 
 /* Main Body Context styling goes here */
 .main-body {
-	/* border: 1px solid red; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -79,62 +96,69 @@ main {
 /* WelComeMessage Section */
 .welcome-message {
 	/* font-size: 3.5rem; */
-	border: 0.5rem solid firebrick;
+	/* border: 1px solid black; */
 	border-radius: 1rem;
 	margin: 1rem 0;
-	padding: 1rem 0;
+	padding: 2rem 0;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .welcome-initial {
+	/* border: 1px solid blue; */
 	display: inherit;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	margin: 2rem 0;
+	margin-bottom: 2rem;
 }
 
 .welcome-img {
-	/* border: 1px solid black; */
 	display: inherit;
-	flex: 0.3;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
 	/* padding-right: 2rem; */
 }
 
 .welcome-img img {
 	border-radius: 0.5rem;
+	width: 100%;
+	height: auto;
 }
 
 .welcome-headline {
-	/* border: 1px solid black; */
-	flex: 0.7;
 	text-align: center;
-	font-size: 2.5rem;
+	font-size: 2rem;
+}
+
+.welcome-headline br {
+	display: none;
 }
 
 .welcome-para-div {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	/* border: 1px solid black; */
+	padding: 1rem;
 }
 
 .img-icon {
-	border: 1px solid black;
+	padding: 1rem;
 }
 
 .welcome-para-div p {
 	font-size: 1.5rem;
-	flex: 0.25;
+}
+
+.welcome-initial .cause-btn {
+	justify-content: center;
+	font-size: 2.2rem;
 }
 
 /* CauseCategoryBox Section */
 .cause-category-box {
 	text-align: center;
-	/* border: 1px solid blueviolet; */
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -251,4 +275,103 @@ footer {
 
 .about {
 	border: 1px solid orange;
+}
+
+/* Responsive Navbar */
+
+@media screen and (max-width: 600px) {
+	.navbar {
+		flex-direction: column;
+		padding-top: 1rem;
+	}
+	.nav-links {
+		width: 100%;
+		padding-top: 1rem;
+	}
+
+	.nav-links ul {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.nav-links .menu-links {
+		width: 100%;
+		text-align: center;
+	}
+	.nav-links li:hover {
+		background-color: #555;
+	}
+
+	.toggle-btn {
+		display: flex;
+	}
+
+	.main-body {
+		width: 95%;
+		margin: auto;
+	}
+
+	.welcome-message {
+		flex-direction: column-reverse;
+		justify-content: center;
+		padding: 0.5rem;
+	}
+
+	.welcome-initial {
+		margin: 0.8rem;
+	}
+
+	.welcome-headline h1 {
+		font-size: 2.5rem;
+	}
+
+	.welcome-initial .welcome-img {
+		padding: 0;
+		margin: 0;
+		width: 50%;
+		height: 50%;
+	}
+
+	.welcome-para-div {
+		flex-direction: column;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0.8rem;
+		/* border: 1px solid black; */
+	}
+
+	.img-icon {
+		padding: 0.5rem;
+		/* text-align: center; */
+		display: flex;
+		flex-direction: row;
+	}
+
+	.img-icon p {
+		font-size: 1rem;
+		padding-left: 0.6rem;
+	}
+
+	.cause-btn {
+		width: 100%;
+		text-align: center;
+	}
+
+	.btn {
+		display: block;
+	}
+
+	.cause-category-box h1 {
+		font-size: 1.8rem;
+	}
+
+	.card-section {
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+
+	.card {
+		width: inherit;
+	}
 }

@@ -7,6 +7,11 @@ const NavBar = () => {
 			<Link to='/' className={'brand-title'}>
 				<div>Imam Trust</div>
 			</Link>
+			<div className='toggle-btn'>
+				<span className='toggle' />
+				<span className='toggle' />
+				<span className='toggle' />
+			</div>
 			<div className='nav-links'>
 				<ul>
 					<Link to='/cause' className={'menu-links'}>
