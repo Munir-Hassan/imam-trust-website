@@ -9,9 +9,7 @@ const CauseCategoryBox = () => {
 				<li>Education</li>
 				<li>Health</li>
 				<li>Orphanage</li>
-				<li>tab1</li>
-				<li>tab2</li>
-				<li>tab3</li>
+				<li>Poor & Needy</li>
 			</div>
 			<div className='card-section'>
 				<CardComponent />

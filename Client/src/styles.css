@@ -18,14 +18,18 @@ body {
 .navbar {
 	width: 100%;
 	display: flex;
-	background: #333;
 	justify-content: space-evenly;
 	align-items: center;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	background-color: #4faf4e;
 	color: white;
+	margin: 0;
+	box-shadow: 0 0px 8px 3px rgba(0, 0, 0, 0.2);
 }
 
 .brand-title {
-	/* border: 1px solid lawngreen; */
 	font-size: 2rem;
 	color: inherit;
 	text-decoration: none;
@@ -51,8 +55,6 @@ body {
 
 .nav-links {
 	height: 100%;
-
-	/* border: 1px solid lawngreen; */
 }
 
 .nav-links ul {
@@ -60,15 +62,19 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	list-style: none;
-	/* border: 1px solid whitesmoke; */
+	margin: 0;
 }
 
 .nav-links li {
+	display: flex;
+	height: 3.5rem;
 	padding: 1rem;
+	align-items: center;
 }
 
 .nav-links li:hover {
 	background-color: #555;
+	transition: 0.2s;
 }
 
 .menu-links {
@@ -79,7 +85,6 @@ body {
 
 main {
 	color: #660033;
-	flex: 1 0 auto;
 }
 
 /* Main Body Context styling goes here */
@@ -87,10 +92,11 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* align-items: center; */
+	flex: 1;
 	width: 70%;
 	margin: auto;
-	min-height: 100vh;
+	min-height: 100vmin;
+	margin-top: 4rem;
 }
 
 /* WelComeMessage Section */
@@ -207,10 +213,6 @@ main {
 	width: 100%;
 }
 
-.container {
-	padding: 0.1rem;
-}
-
 .progress {
 	width: inherit;
 	background-color: #efefef;
@@ -221,14 +223,37 @@ main {
 .bar {
 	width: 20%;
 	height: 0.6rem;
-	background-color: green;
+	background-color: #4faf4e;
 	border-radius: inherit;
 }
 
 .fundraise-info {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
+.card-donate-btn {
+	font-family: inherit;
+	border: none;
+	outline: 0;
+	padding: 1rem;
+	margin-top: 0.3rem;
+	width: 100%;
+	border-radius: 0 0 10px 10px;
+	color: white;
+	/* background-color: #4faf4e; */
+	background-color: #555;
+	text-align: center;
+	cursor: pointer;
+	font-size: 2rem;
+}
+
+.card-donate-btn:hover {
+	background-color: #4faf4e;
+	transition: 0.3s;
 }
 
 /* Call To Action Section */
@@ -244,18 +269,38 @@ main {
 	/* vertical-align: middle; */
 	padding: 0.2rem 0.5rem;
 	margin: 0 0.5rem;
-	border: 2px solid green;
-	border-radius: 1rem;
+	border: 2px solid #4faf4e;
+	border-radius: 1.2rem;
 }
 
 .btn:hover {
-	background-color: green;
+	background-color: #4faf4e;
 	color: white;
 	transition: 0.3s;
 }
 
 .para-fundraise-cta {
 	margin-left: 10rem;
+}
+
+.cause-grid {
+	display: flex;
+	flex: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.cause-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #555;
+	width: 200px;
+	height: 200px;
+	margin: 1rem;
+	padding: 1rem;
+	color: cornflowerblue;
 }
 
 footer {
@@ -268,17 +313,15 @@ footer {
 	align-items: center;
 	width: 100%;
 	margin: 0;
-	background: slateblue;
+	background: rgb(140, 128, 223);
 	padding: 0.2rem 0rem;
-	border: 1px solid black;
 }
 
-.about {
-	border: 1px solid orange;
+.about p {
+	text-align: justify;
 }
 
 /* Responsive Navbar */
-
 @media screen and (max-width: 600px) {
 	.navbar {
 		flex-direction: column;
@@ -373,5 +416,9 @@ footer {
 
 	.card {
 		width: inherit;
+	}
+
+	.cause-grid {
+		justify-content: center;
 	}
 }

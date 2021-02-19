@@ -1,7 +1,8 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+	const [ isHidden, setIsHidden ] = useState(false);
 	return (
 		<nav className='navbar'>
 			<Link to='/' className={'brand-title'}>
