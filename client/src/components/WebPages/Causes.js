@@ -10,19 +10,19 @@ const Causes = () => {
 					<h2>Education</h2>
 				</div>
 				<div className='cause-card'>
-					<h2>Education</h2>
+					<h2>Health</h2>
 				</div>
 				<div className='cause-card'>
-					<h2>Education</h2>
+					<h2>Orphanage</h2>
 				</div>
 				<div className='cause-card'>
-					<h2>Education</h2>
+					<h2>Poor & Needy</h2>
 				</div>
 				<div className='cause-card'>
-					<h2>Education</h2>
+					<h2>Food</h2>
 				</div>
 				<div className='cause-card'>
-					<h2>Education</h2>
+					<h2>Mosque</h2>
 				</div>
 			</div>
 		</div>

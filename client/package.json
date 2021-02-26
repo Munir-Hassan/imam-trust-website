@@ -2,7 +2,7 @@
   "name": "imam-trust-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://munir-hassan.github.io/imam-trust-website",
+  "homepage": "https://munir-hassan.github.io/imam-trust-website/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",

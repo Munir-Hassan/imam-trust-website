@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -7,7 +7,7 @@
 }
 
 body {
-	font-family: 'Grandstander', cursive;
+	font-family: 'Source Sans Pro', sans-serif;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -319,6 +319,23 @@ footer {
 
 .about p {
 	text-align: justify;
+}
+
+.form-container {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-row input {
+	flex: 1;
 }
 
 /* Responsive Navbar */

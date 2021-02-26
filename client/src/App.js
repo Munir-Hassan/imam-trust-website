@@ -13,23 +13,27 @@ function App() {
 				<NavBar />
 				<main className='main-body'>
 					<Switch>
-						<Route exact path='/' component={LandingPage} />
-						<Route exact path='/cause' component={Cause} />
-						<Route exact path='/about' component={About} />
-						<Route exact path='/donate' component={Donate} />
-						<Route exact path='/fundraise' component={Fundraise} />
-						<Route exact path='/sign-in' component={SignIn} />
+						<Route exact path='/'>
+							<LandingPage />
+						</Route>
+						<Route exact path='/cause'>
+							<Cause />
+						</Route>
+						<Route exact path='/about'>
+							<About />
+						</Route>
+						<Route exact path='/donate'>
+							<Donate />
+						</Route>
+						<Route exact path='/fundraise'>
+							<Fundraise />
+						</Route>
+						<Route exact path='/sign-in'>
+							<SignIn />
+						</Route>
 					</Switch>
 				</main>
 				<Footer />
-				{/* 
-			create the new pages
-			1. Our causes
-			2. About Us
-			3. Sign-In
-			4. Donate
-			5. Fundraise
-       */}
 			</div>
 		</Router>
 	);
