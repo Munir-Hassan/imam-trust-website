@@ -1,7 +1,20 @@
 import React from 'react';
+import axios from 'axios';
 
 const Causes = () => {
 	const cards = [ 1, 2, 3, 4, 5, 6 ];
+	const posturl = 'http://localhost:5000';
+
+	const handleClick = async () => {
+		await axios
+			.get(posturl + '/cause/education', 'sending education request!')
+			.then((res) => {
+				console.log('we got a education response!', res);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 	return (
 		<div className='causes'>
 			<div className='search-bar-cause' />

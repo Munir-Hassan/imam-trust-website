@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactUs from './ContactUs';
 
 const About = () => {
 	return (
@@ -29,6 +30,8 @@ const About = () => {
 				Eum, ea. Reprehenderit veritatis explicabo quod praesentium nisi porro? Maxime provident dicta tempore
 				mollitia! Autem, aliquam. Illo, omnis.
 			</p>
+
+			<ContactUs />
 		</div>
 	);
 };

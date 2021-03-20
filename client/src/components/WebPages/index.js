@@ -1,4 +1,4 @@
-import About from './About';
+import About from './AboutUs/About';
 import Cause from './Causes';
 import Donate from './Donate';
 import Fundraise from './Fundraise';
