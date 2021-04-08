@@ -13,4 +13,12 @@ router.post('/signup', (req, res) => {
 	}
 });
 
+router.get('/cause/education', (res, req) => {
+	try {
+		res.status(200).send('education route working!');
+	} catch (error) {
+		res.status(404).send('education route not working');
+	}
+});
+
 export default router;

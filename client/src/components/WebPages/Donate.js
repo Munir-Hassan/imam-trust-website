@@ -7,6 +7,8 @@ const Donate = () => {
 			<h1>Donate</h1>
 			<p>Donation list to be included</p>
 			<DonateItems />
+			<DonateItems />
+			<DonateItems />
 		</div>
 	);
 };

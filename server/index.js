@@ -1,17 +1,21 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import router from './routes/routes.js';
-
+import connectDatabase from './database.js';
 const app = express();
 
 // Intermediate Middleware
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+dotenv.config();
 
 // Routes
 app.use(router);
+
+//MongoBD Connection
+connectDatabase();
 
 const PORT = process.env.PORT || 5000;
 

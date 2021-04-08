@@ -317,6 +317,65 @@ footer {
 	padding: 0.2rem 0rem;
 }
 
+.donate-item-card {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid black;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem;
+	margin: 1.5rem 0 1.5rem 0;
+}
+
+.donate-id-img-container {
+	flex: 0.3;
+	justify-content: center;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+.donate-id-img-container > img {
+	height: 70%;
+	width: 100%;
+	/* object-fit: scale-down; */
+}
+
+.donate-info-container {
+	display: flex;
+	flex-direction: column;
+	flex: 0.7;
+	justify-content: space-between;
+	/* border: 1px solid blue; */
+}
+
+.donate-id-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.donate-item-card-buttons {
+	display: flex;
+	justify-content: space-between;
+	/* border: 1px solid red; */
+}
+
+.donate {
+	margin-bottom: 0.5rem;
+}
+
+.donate-react-button {
+	display: flex;
+	align-items: center;
+	border: 1px solid #4faf4e;
+	justify-content: space-between;
+}
+
+.donate-item-card-buttons > button {
+	padding: 0.5rem;
+	width: 5rem;
+}
+
 .about p {
 	text-align: justify;
 }
