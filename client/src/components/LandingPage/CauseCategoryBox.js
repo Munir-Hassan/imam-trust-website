@@ -1,5 +1,6 @@
 import React from 'react';
 import CardComponent from './CardComponent';
+import './CauseCategoryBox.styles.css';
 
 const CauseCategoryBox = () => {
 	return (

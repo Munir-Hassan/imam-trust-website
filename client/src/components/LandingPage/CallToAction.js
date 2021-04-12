@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './CallToAction.styles.css';
 
 const CallToAction = () => {
 	return (

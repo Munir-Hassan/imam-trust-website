@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../images/img_avatar.png';
+import './WelcomeMessage.styles.css';
 
 const WelcomeMessage = () => {
 	return (

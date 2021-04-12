@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './NavBar.styles.css';
 
 const NavBar = () => {
 	const [ isHidden, setIsHidden ] = useState(false);

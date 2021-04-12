@@ -1,0 +1,15 @@
+/* Footer Styles Goes Here */
+
+footer {
+	flex-shrink: 0;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0;
+	background: rgb(140, 128, 223);
+	padding: 0.2rem 0rem;
+}

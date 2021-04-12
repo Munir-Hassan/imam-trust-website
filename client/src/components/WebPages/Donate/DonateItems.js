@@ -1,5 +1,6 @@
 import React from 'react';
-import img from '../../images/img_avatar.png';
+import img from '../../../images/img_avatar.png';
+import './DonateItems.styles.css';
 
 const DonateItems = () => {
 	return (
