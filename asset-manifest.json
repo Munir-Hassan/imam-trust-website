@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/imam-trust-website/static/css/main.abff5a8d.chunk.css",
-    "main.js": "/imam-trust-website/static/js/main.3623e43c.chunk.js",
-    "main.js.map": "/imam-trust-website/static/js/main.3623e43c.chunk.js.map",
+    "main.js": "/imam-trust-website/static/js/main.62ff7e52.chunk.js",
+    "main.js.map": "/imam-trust-website/static/js/main.62ff7e52.chunk.js.map",
     "runtime-main.js": "/imam-trust-website/static/js/runtime-main.bfd0ed3f.js",
     "runtime-main.js.map": "/imam-trust-website/static/js/runtime-main.bfd0ed3f.js.map",
     "static/js/2.840fe26c.chunk.js": "/imam-trust-website/static/js/2.840fe26c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bfd0ed3f.js",
     "static/js/2.840fe26c.chunk.js",
     "static/css/main.abff5a8d.chunk.css",
-    "static/js/main.3623e43c.chunk.js"
+    "static/js/main.62ff7e52.chunk.js"
   ]
 }
