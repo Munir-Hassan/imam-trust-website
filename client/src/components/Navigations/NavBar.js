@@ -4,6 +4,7 @@ import './NavBar.styles.css';
 
 const NavBar = () => {
 	const [ isHidden, setIsHidden ] = useState(false);
+	const user = true;
 	return (
 		<nav className='navbar'>
 			<Link to='/' className={'brand-title'}>
@@ -28,9 +29,13 @@ const NavBar = () => {
 					<Link to='/fundraise' className={'menu-links'}>
 						<li>Fundraise</li>
 					</Link>
-					<Link to='/sign-in' className={'menu-links'}>
-						<li>Sign In</li>
-					</Link>
+					{user ? (
+						<Link to='/sign-in' className={'menu-links'}>
+							<li>Sign In</li>
+						</Link>
+					) : (
+						<li>Logout</li>
+					)}
 				</ul>
 			</div>
 		</nav>

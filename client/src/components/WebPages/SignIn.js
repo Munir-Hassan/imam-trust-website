@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+import './SignIn.styles.css';
+
 const posturl = 'http://localhost:5000';
 
 const SignIn = (props) => {
 	const [ btnResponse, setBtnResponse ] = useState('');
+	const [ isSignUp, setSignUp ] = useState(false);
 
 	const { register, handleSubmit, errors } = useForm();
 
@@ -19,7 +22,7 @@ const SignIn = (props) => {
 				console.log('Server responded back!');
 				console.log(res);
 				setBtnResponse('success!');
-				props.history.push('/dashboard');
+				// props.history.push('/dashboard');
 			})
 			.catch((error) => {
 				console.log(error);
@@ -27,23 +30,47 @@ const SignIn = (props) => {
 			});
 	};
 
+	const switchMode = () => {
+		setSignUp((prevSignup) => !prevSignup);
+	};
+
 	const handleFormChange = (event) => {};
 	return (
 		<div>
-			<h1>Sign In</h1>
 			<div className='form-container'>
+				<h1 className='signin-header'>{isSignUp ? 'Sign Up' : 'Sign In'}</h1>
 				<div>{btnResponse}</div>
 				<form method='POST' className='signup-form' onSubmit={handleSubmit(handleFormSubmit)}>
-					<div className='form-row'>
-						<input
-							name='firstname'
-							type='text'
-							placeholder='First Name'
-							ref={register({ required: true })}
-							onChange={handleFormChange}
-						/>
-						<input name='lastname' type='text' placeholder='Last Name' ref={register({ required: true })} />
-					</div>
+					{isSignUp && (
+						<div className='form-row'>
+							<input
+								name='firstname'
+								type='text'
+								placeholder='First Name'
+								ref={register({ required: true })}
+								onChange={handleFormChange}
+							/>
+							<input
+								name='lastname'
+								type='text'
+								placeholder='Last Name'
+								ref={register({ required: true })}
+							/>
+						</div>
+					)}
+
+					{errors.email &&
+					errors.email.type === 'required' && (
+						<div className='form-row-error'>
+							<p className='errorMsg'>Email is required.</p>
+						</div>
+					)}
+					{errors.email &&
+					errors.email.type === 'pattern' && (
+						<div className='form-row-error'>
+							<p className='errorMsg'>Email is not valid.</p>
+						</div>
+					)}
 					<div className='form-row'>
 						<input
 							name='email'
@@ -51,11 +78,27 @@ const SignIn = (props) => {
 							placeholder='Email'
 							ref={register({ required: true, pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/ })}
 						/>
-						{errors.email &&
-						errors.email.type === 'required' && <p className='errorMsg'>Email is required.</p>}
-						{errors.email &&
-						errors.email.type === 'pattern' && <p className='errorMsg'>Email is not valid.</p>}
 					</div>
+
+					{errors.password &&
+					errors.password.type === 'required' && (
+						<div className='form-row-error'>
+							<p className='errorMsg'>Password is required.</p>
+						</div>
+					)}
+					{errors.password &&
+					errors.password.type === 'minLength' && (
+						<div className='form-row-error'>
+							<p className='errorMsg'>Password should be at-least 6 characters.</p>
+						</div>
+					)}
+
+					{errors.repeatpassword &&
+					errors.repeatpassword !== errors.password && (
+						<div className='form-row-error'>
+							<p className='errorMsg'>Password do not match.</p>
+						</div>
+					)}
 					<div className='form-row'>
 						<input
 							name='password'
@@ -63,22 +106,32 @@ const SignIn = (props) => {
 							placeholder='Password'
 							ref={register({ required: true, minLength: 6 })}
 						/>
-						{errors.password &&
-						errors.password.type === 'required' && <p className='errorMsg'>Password is required.</p>}
-						{errors.password &&
-						errors.password.type === 'minLength' && (
-							<p className='errorMsg'>Password should be at-least 6 characters.</p>
+
+						{isSignUp && (
+							<input
+								name='repeatpassword'
+								type='password'
+								placeholder='Repeat Password'
+								ref={register({ required: true, minLength: 6 })}
+							/>
 						)}
-						<input
-							name='repeatpassword'
-							type='password'
-							placeholder='Repeat Password'
-							ref={register({ required: true, minLength: 6 })}
-						/>
-						{errors.repeatpassword &&
-						errors.repeatpassword !== errors.password && <p className='errorMsg'>Password do not match.</p>}
 					</div>
-					<button type='submit'>Sign In</button>
+
+					<div className='google-facebook-auth-container'>
+						<button className='form-row-buttons-auth google-btn' type='submit'>
+							Sign In with Google
+						</button>
+						<button className='form-row-buttons-auth facebook-btn' type='submit'>
+							Sign In with Facebook
+						</button>
+					</div>
+
+					<button className='form-row-buttons' type='submit'>
+						{isSignUp ? 'Sign Up' : 'Sign In'}
+					</button>
+					<button className='form-row-buttons' type='button' onClick={switchMode}>
+						{isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign Up"}
+					</button>
 				</form>
 			</div>
 		</div>

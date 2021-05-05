@@ -15,12 +15,12 @@ function App() {
 				<main className='main-body'>
 					<Switch>
 						<Route exact path='/' component={LandingPage} />
-						<Route path='/cause' component={Cause} />
-						<Route path='/about' component={About} />
-						<Route path='/donate' component={Donate} />
-						<Route path='/fundraise' component={Fundraise} />
-						<Route path='/sign-in' component={SignIn} />
-						<Route path='/dashboard' component={UserDashBoard} />
+						<Route exact path='/cause' component={Cause} />
+						<Route exact path='/about' component={About} />
+						<Route exact path='/donate' component={Donate} />
+						<Route exact path='/fundraise' component={Fundraise} />
+						<Route exact path='/sign-in' component={SignIn} />
+						<Route exact path='/dashboard' component={UserDashBoard} />
 					</Switch>
 				</main>
 				<Footer />

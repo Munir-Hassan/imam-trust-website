@@ -30,24 +30,6 @@ main {
 	margin-top: 4rem;
 }
 
-.form-container {
-	border: 1px solid black;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.form-row {
-	display: flex;
-	flex-direction: row;
-	font-size: 1.5rem;
-}
-
-.form-row input {
-	flex: 1;
-}
-
 /* Responsive Navbar */
 @media screen and (max-width: 600px) {
 	.navbar {
