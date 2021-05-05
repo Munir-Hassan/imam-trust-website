@@ -8,13 +8,28 @@ const Fundraise = () => {
 	const { register, handleSubmit, errors } = useForm();
 
 	const categoryList = [ 'Education', 'Health', 'Orphanage', 'Mosque', 'Poor & Needy', 'Food' ];
+	const imageObject = new FormData();
+	const uploadImage = (e) => {
+		const imageValue = e.target.files[0];
+		console.log(imageValue);
+		imageObject.append('imageFile', imageValue);
+	};
 	const handleFormSubmit = async (data) => {
-		console.log(data);
+		console.log(data.imagefile[0]);
+
+		const formData = {
+			title: data.title,
+			description: data.description,
+			amount: data.amount,
+			category: data.category,
+			imagefile: { imageObject }
+		};
 
 		await axios
-			.post(posturl + '/fundraise', data)
-			.then(() => {
+			.post(posturl + '/fundraise', formData)
+			.then((res) => {
 				console.log('fundraise form posted!');
+				console.log(res);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -72,8 +87,8 @@ const Fundraise = () => {
 						<input
 							type='file'
 							name='imagefile'
-							multiple='false'
 							accept='image/png, image/jpeg'
+							onChange={uploadImage}
 							ref={register({ required: true })}
 						/>
 					</div>

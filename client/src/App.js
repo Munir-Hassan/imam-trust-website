@@ -14,7 +14,7 @@ function App() {
 				<NavBar />
 				<main className='main-body'>
 					<Switch>
-						<Route exact path='/' component={LandingPage} />
+						<Route exact path='/imam-trust-website/' component={LandingPage} />
 						<Route exact path='/cause' component={Cause} />
 						<Route exact path='/about' component={About} />
 						<Route exact path='/donate' component={Donate} />
