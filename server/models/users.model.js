@@ -2,8 +2,14 @@ import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
 	name: {
-		first: String,
-		last: String
+		firstName: {
+			type: String,
+			required: true
+		},
+		lastName: {
+			type: String,
+			required: true
+		}
 	},
 	email: {
 		type: String,
@@ -13,13 +19,16 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	address: {
-		city: String,
-		country: String
-	},
+	// address: {
+	// 	city: String,
+	// 	country: String
+	// },
 	creaatedAt: {
 		type: Date,
 		default: new Date()
+	},
+	id: {
+		type: String
 	}
 });
 

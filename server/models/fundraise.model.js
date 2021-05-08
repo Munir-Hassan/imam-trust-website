@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const fundraisePosts = mongoose.Schema({
+	title: String,
 	description: String,
 	amount: Number,
 	deadLine: Date,

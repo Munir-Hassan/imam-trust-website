@@ -8,6 +8,10 @@ const Fundraise = () => {
 	const { register, handleSubmit, errors } = useForm();
 
 	const categoryList = [ 'Education', 'Health', 'Orphanage', 'Mosque', 'Poor & Needy', 'Food' ];
+
+	const updateFile = (e) => {
+		console.log(e.target.files[0]);
+	};
 	const handleFormSubmit = async (data) => {
 		console.log(data);
 
@@ -73,6 +77,7 @@ const Fundraise = () => {
 							type='file'
 							name='imagefile'
 							multiple='false'
+							onChange={updateFile}
 							accept='image/png, image/jpeg'
 							ref={register({ required: true })}
 						/>
