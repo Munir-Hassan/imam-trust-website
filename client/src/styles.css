@@ -20,6 +20,7 @@ main {
 
 /* Main Body Context styling goes here */
 .main-body {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

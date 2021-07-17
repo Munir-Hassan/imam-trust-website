@@ -24,6 +24,7 @@
 }
 
 .donate-info-container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	flex: 0.7;
@@ -31,30 +32,73 @@
 	/* border: 1px solid blue; */
 }
 
-.donate-id-info {
+.donate-info-headings > h3 {
+	display: inline;
+	margin-right: 0.5rem;
+}
+
+.donate-btn {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
 	align-items: center;
-}
-
-.donate-item-card-buttons {
-	display: flex;
-	justify-content: space-between;
-	/* border: 1px solid red; */
-}
-
-.donate {
-	margin-bottom: 0.5rem;
-}
-
-.donate-react-button {
-	display: flex;
-	align-items: center;
-	border: 1px solid #4faf4e;
 	justify-content: space-between;
 }
 
-.donate-item-card-buttons > button {
+.donate-btn > button {
+	font-size: 1.2rem;
 	padding: 0.5rem;
-	width: 5rem;
+	width: 25%;
+	outline: none;
+}
+
+.donate-description {
+	padding: 0.3rem;
+	text-align: justify;
+	overflow-y: auto;
+}
+
+.donate-progress-bar {
+	width: 100%;
+	background-color: #efefef;
+	border-radius: 0.5rem;
+}
+
+.donate-progress-indicator {
+	width: 50%;
+	height: 2rem;
+	background-color: #4faf4e;
+	border-radius: inherit;
+}
+
+.donate-three-dot-menu {
+	position: absolute;
+	top: 0.2rem;
+	right: 0.2rem;
+}
+
+.dot {
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: black;
+	margin: 0.3rem;
+	border-radius: 50%;
+	display: block;
+}
+
+.donate-three-dot-menu:hover {
+	background-color: #efefef;
+	/* border-radius: 50%; */
+}
+
+.donate-three-dot-menu-content {
+	display: flex;
+	flex-direction: column;
+	height: 5rem;
+	width: 7rem;
+	/* border: 1px solid black; */
+}
+
+.donate-three-dot-menu-content > button {
+	height: 3rem;
+	outline: none;
 }

@@ -7,6 +7,7 @@
 	overflow: hidden;
 	position: fixed;
 	top: 0;
+	z-index: 999;
 	background-color: #4faf4e;
 	color: white;
 	margin: 0;
@@ -65,4 +66,28 @@
 	list-style: none;
 	text-decoration: none;
 	color: inherit;
+}
+
+.navbar-profile {
+	/* position: relative; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5rem;
+	cursor: pointer;
+}
+
+.navbar-profile-image {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	margin-right: 0.6rem;
+}
+
+.navbar-profile:hover {
+	background-color: rgb(105, 105, 105);
+	/* transition: 0.2s; */
 }

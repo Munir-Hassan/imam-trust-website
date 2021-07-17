@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
 const fundraisePosts = mongoose.Schema({
+	id: String,
 	title: String,
 	description: String,
 	amount: Number,
-	deadLine: Date,
-	causeType: String,
+	category: String,
+	imageFile: String,
 	createdAt: {
 		type: Date,
 		default: new Date()

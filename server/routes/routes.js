@@ -1,5 +1,6 @@
 import express from 'express';
 import Users from '../models/users.model.js';
+import FundraisePosts from '../models/fundraise.model.js';
 
 const router = express.Router();
 
@@ -32,18 +33,33 @@ router.post('/signup', async (req, res) => {
 	}
 });
 
-router.get('/cause/education', (res, req) => {
+router.post('/fundraise', async (req, res) => {
+	const { title, description, amount, category, imagefile } = req.body;
+
 	try {
-		res.status(200).send('education route working!');
+		const newFundraisePost = await FundraisePosts.create({
+			title: title,
+			description: description,
+			amount: amount,
+			category: category,
+			imageFile: imagefile
+		});
+		console.log(newFundraisePost);
+		res.status(201).json({ result: newFundraisePost });
 	} catch (error) {
-		res.status(404).send('education route not working');
+		console.log(error);
+		res.status(404).send('Fundraise Post not created!');
 	}
 });
 
-router.post('/fundraise', (req, res) => {
-	console.log(req.body);
-	res.status(200).send(req.body);
-	// console.log(req.body.imagefile[0]);
+router.get('/donate', async (req, res) => {
+	try {
+		const allFundraisePosts = await FundraisePosts.find();
+		res.status(200).send(allFundraisePosts);
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+	}
 });
 
 export default router;

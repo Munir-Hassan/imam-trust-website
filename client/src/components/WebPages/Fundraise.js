@@ -9,26 +9,51 @@ const Fundraise = () => {
 
 	const categoryList = [ 'Education', 'Health', 'Orphanage', 'Mosque', 'Poor & Needy', 'Food' ];
 
+	let imageBase64 = '';
 	const updateFile = (e) => {
-		console.log(e.target.files[0]);
+		const image = e.target.files[0];
+		const reader = new FileReader();
+
+		reader.onloadend = () => {
+			console.log(image);
+			imageBase64 = reader.result;
+			console.log(imageBase64);
+		};
+		reader.readAsDataURL(image);
 	};
 	const handleFormSubmit = async (data) => {
-		console.log(data);
+		console.log(data.imagefile);
+
+		const formData = {
+			title: data.title,
+			description: data.description,
+			amount: data.amount,
+			category: data.category,
+			imagefile: imageBase64
+		};
 
 		await axios
-			.post(posturl + '/fundraise', data)
-			.then(() => {
+			.post(posturl + '/fundraise', formData)
+			.then((res) => {
 				console.log('fundraise form posted!');
+				console.log(res);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	};
+
 	return (
 		<div>
+			{/* <img src={imageBase64} alt='base64img' /> */}
 			<div className='form-container'>
 				<h1>Fundraise</h1>
-				<form method='POST' className='fundraise-form' onSubmit={handleSubmit(handleFormSubmit)}>
+				<form
+					method='POST'
+					className='fundraise-form'
+					encType='multipart/form-data'
+					onSubmit={handleSubmit(handleFormSubmit)}
+				>
 					<div className='form-row'>
 						<input name='title' type='text' placeholder='Title' ref={register({ required: true })} />
 					</div>
@@ -60,7 +85,7 @@ const Fundraise = () => {
 									</option>
 								);
 							})} */}
-							<option value='none' selected>
+							<option selected disabled>
 								Select a fundraise type
 							</option>
 							{categoryList.map((type, index) => {
@@ -76,7 +101,7 @@ const Fundraise = () => {
 						<input
 							type='file'
 							name='imagefile'
-							multiple='false'
+							multiple={false}
 							onChange={updateFile}
 							accept='image/png, image/jpeg'
 							ref={register({ required: true })}

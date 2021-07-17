@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 
 import './SignIn.styles.css';
@@ -34,7 +35,25 @@ const SignIn = (props) => {
 		setSignUp((prevSignup) => !prevSignup);
 	};
 
-	const handleFormChange = (event) => {};
+	const googleLoginSuccess = async (response) => {
+		const result = response && response.profileObj;
+		const token = response && response.tokenId;
+		console.log(result);
+		const profileData = { result, token };
+		console.log(profileData);
+
+		try {
+			localStorage.setItem('profile', JSON.stringify({ ...profileData }));
+			props.history.push('/imam-trust-website');
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const googleLoginFailure = async (error) => {
+		console.log(error);
+		console.log('Google login failed');
+	};
 	return (
 		<div>
 			<div className='form-container'>
@@ -48,7 +67,6 @@ const SignIn = (props) => {
 								type='text'
 								placeholder='First Name'
 								ref={register({ required: true })}
-								onChange={handleFormChange}
 							/>
 							<input
 								name='lastname'
@@ -93,8 +111,8 @@ const SignIn = (props) => {
 						</div>
 					)}
 
-					{errors.repeatpassword &&
-					errors.repeatpassword !== errors.password && (
+					{errors.confirmPassword &&
+					errors.confirmPassword !== errors.password && (
 						<div className='form-row-error'>
 							<p className='errorMsg'>Password do not match.</p>
 						</div>
@@ -109,7 +127,7 @@ const SignIn = (props) => {
 
 						{isSignUp && (
 							<input
-								name='repeatpassword'
+								name='confirmPassword'
 								type='password'
 								placeholder='Repeat Password'
 								ref={register({ required: true, minLength: 6 })}
@@ -118,9 +136,22 @@ const SignIn = (props) => {
 					</div>
 
 					<div className='google-facebook-auth-container'>
-						<button className='form-row-buttons-auth google-btn' type='submit'>
-							Sign In with Google
-						</button>
+						<GoogleLogin
+							clientId='159725840776-sc86o8if6kpa53p70sraeaf70ri0o2jo.apps.googleusercontent.com'
+							render={(renderProps) => (
+								<button
+									className='form-row-buttons-auth google-btn'
+									type='submit'
+									onClick={renderProps.onClick}
+									disabled={renderProps.disabled}
+								>
+									Sign In with Google
+								</button>
+							)}
+							onSuccess={googleLoginSuccess}
+							onFailure={googleLoginFailure}
+							cookiePolicy='single_host_origin'
+						/>
 						<button className='form-row-buttons-auth facebook-btn' type='submit'>
 							Sign In with Facebook
 						</button>
